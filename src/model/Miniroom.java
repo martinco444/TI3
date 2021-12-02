@@ -34,6 +34,15 @@ public class Miniroom{
     //calculateRent
     //-> Variables
     
+    public void cancelRent(){
+        this.dispo=true;
+        this.rack.clear();
+        this.enterprice=null;
+        this.idProject="";
+    }
+
+
+    
 
     public int getColumn() {
         return column;

@@ -67,4 +67,69 @@ public class DatacenterControl{
         }
         return message;
     }
+
+    public boolean rentMiniRoom(int id, String name, String nit) {
+        boolean rent=false;
+        if (searchMiniRoom(id)!=null){
+            Miniroom miniRoom=searchMiniRoom(id);
+            miniRoom.setEnterprice(new Enterprice(nit, name));
+            miniRoom.setDispo(false);
+            rent=true;
+
+        }
+        return rent;
+    }
+
+    public boolean rentMiniRoom(int id, String idProject) {
+
+        boolean rent=false;
+        if(searchMiniRoom(id)!= null){
+            Miniroom miniRoom=searchMiniRoom(id);
+            miniRoom.setIdProject(idProject);
+            miniRoom.setDispo(false);
+            rent=true;
+        }
+        return rent;
+    }
+
+
+    public Miniroom searchMiniRoom(int id){
+
+        Miniroom miniRoom=null;
+        boolean find=false;
+
+        for (int i = 0; i < miniRooms.length && find==false; i++) {
+            for (int j = 0; j < miniRooms[0].length && find==false; j++){
+                if(miniRooms[i][j].getId()==id){
+                    find=true;
+                    miniRoom=miniRooms[i][j];
+                }
+            }
+        }
+
+        return miniRoom;
+    }
+
+    public String cancelRent(String name) {
+        String message="";
+        //Miniroom miniRoom=null;
+       
+
+        for (int i = 0; i < miniRooms.length ; i++) {
+            for (int j = 0; j < miniRooms[0].length ; j++){
+                if(miniRooms[i][j].getEnterprice()!=null){
+                    if (miniRooms[i][j].getEnterprice().getName().equals(name)){
+                        //TODO RAM
+                        miniRooms[i][j].cancelRent();
+                    }
+                 
+                }
+            }
+        }
+
+        return message;
+    }
+
+
+    
 }
