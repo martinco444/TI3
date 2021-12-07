@@ -12,21 +12,37 @@ public class Enterprice{
     }
 
 
+    
+    /** 
+     * @return nit String
+     */
     public String getNit() {
         return nit;
     }
 
 
+    
+    /** 
+     * @param newNit
+     */
     public void setNit(String newNit) {
         nit = newNit;
     }
 
 
+    
+    /** 
+     * @return name String
+     */
     public String getName() {
         return name;
     }
 
 
+    
+    /** 
+     * @param newName
+     */
     public void setName(String newName) {
         name = newName;
     }
